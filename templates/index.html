@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tic Tac Toe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <h1>Tic Tac Toe</h1>
+
+    <section class="settings" aria-label="Game settings">
+      <div class="row">
+        <span class="label">Play against</span>
+        <div class="seg" data-key="mode">
+          <button data-value="bot" class="on">Computer</button>
+          <button data-value="pvp">A friend</button>
+        </div>
+      </div>
+      <div class="row bot-only">
+        <span class="label">Difficulty</span>
+        <div class="seg" data-key="difficulty">
+          <button data-value="easy">Easy</button>
+          <button data-value="medium" class="on">Medium</button>
+          <button data-value="hard">Unbeatable</button>
+        </div>
+      </div>
+      <div class="row bot-only">
+        <span class="label">You play as</span>
+        <div class="seg" data-key="human">
+          <button data-value="X" class="on">X (goes first)</button>
+          <button data-value="O">O</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scores" aria-label="Scoreboard">
+      <div><b id="scoreX">0</b><span id="labelX">You (X)</span></div>
+      <div><b id="scoreDraw">0</b><span>Draws</span></div>
+      <div><b id="scoreO">0</b><span id="labelO">Computer (O)</span></div>
+    </section>
+
+    <p id="status" aria-live="polite"></p>
+    <div id="board" class="board"></div>
+
+    <div class="actions">
+      <button id="newRound" class="primary">New round</button>
+      <button id="resetScores">Reset scores</button>
+    </div>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
